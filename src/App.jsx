@@ -198,11 +198,11 @@ function App() {
             <a className={`font-['Epilogue'] tracking-tight uppercase text-sm font-semibold transition-all duration-500 ease-in-out ${activeSection === 'contact' ? 'text-[#007AFF]' : 'text-white/70 hover:text-white'}`} href="#contact">CONTACT</a>
           </div>
           <div className="flex items-center gap-6">
-            <a href="https://github.com/AryanA2323" target="_blank" rel="noreferrer" className="text-[#E0E0E0]/80 hover:text-white hover:scale-110 transition-all">
-              <i className="devicon-github-original text-2xl md:text-3xl"></i>
+            <a href="https://github.com/AryanA2323" target="_blank" rel="noopener noreferrer" className="text-[#E0E0E0]/80 hover:text-white hover:scale-110 transition-all">
+              <i className="devicon-github-original text-2xl md:text-3xl" aria-label="GitHub"></i>
             </a>
-            <a href="https://linkedin.com/in/AryanA2323" target="_blank" rel="noreferrer" className="text-[#E0E0E0]/80 hover:text-[#007AFF] hover:scale-110 transition-all">
-              <i className="devicon-linkedin-plain text-2xl md:text-3xl"></i>
+            <a href="https://linkedin.com/in/AryanA2323" target="_blank" rel="noopener noreferrer" className="text-[#E0E0E0]/80 hover:text-[#007AFF] hover:scale-110 transition-all">
+              <i className="devicon-linkedin-plain text-2xl md:text-3xl" aria-label="LinkedIn"></i>
             </a>
           </div>
         </nav>
@@ -246,7 +246,7 @@ function App() {
               </div>
               <div className="col-span-12 md:col-span-6 relative flex justify-center">
                 <div className="w-full max-w-sm aspect-square bg-surface-container-high overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-xl">
-                  <img className="project-image w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" alt="Cinematic Shot" src="screen_5.png" />
+                  <img className="project-image w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" alt="Aryan Adhav Workspace Archive" src="screen_5.png" loading="lazy" />
                 </div>
                 <div className="absolute -bottom-8 left-4 md:left-12 p-6 bg-surface-container w-64 border border-outline-variant/10 shadow-2xl backdrop-blur-md">
                   <h3 className="font-label-sm text-label-sm text-secondary mb-2">PHILOSOPHY</h3>
@@ -334,7 +334,7 @@ function App() {
                             {proj.desc}
                           </p>
                           <div>
-                            <a href={proj.link} target="_blank" rel="noreferrer" className="text-[10px] md:text-xs text-white hover:text-[#007AFF] transition-colors tracking-widest uppercase font-bold flex items-center gap-2">VIEW CASE <span className="text-lg leading-none">&rarr;</span></a>
+                            <a href={proj.link} target="_blank" rel="noopener noreferrer" className="text-[10px] md:text-xs text-white hover:text-[#007AFF] transition-colors tracking-widest uppercase font-bold flex items-center gap-2">VIEW CASE <span className="text-lg leading-none">&rarr;</span></a>
                           </div>
                         </div>
 
@@ -479,12 +479,12 @@ function App() {
 
         <footer className="w-full py-24 px-16 bg-[#050505] border-t border-[#E0E0E0]/10 flex flex-col md:flex-row justify-between items-end w-full gap-8">
           <div className="flex flex-col gap-4">
-            <img src="logo.png" alt="Aryan Adhav Logo" className="h-20 md:h-28 w-auto object-contain self-start drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" />
+            <img src="logo.png" alt="Aryan Adhav Logo" className="h-20 md:h-28 w-auto object-contain self-start drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" loading="lazy" />
             <p className="font-['Epilogue'] text-[9px] tracking-[0.2em] uppercase font-light text-[#E0E0E0]/40">© 2026 ARYAN ADHAV. ALL RIGHTS RESERVED.</p>
           </div>
           <div className="flex gap-8">
-            <a className="font-['Epilogue'] text-[9px] tracking-[0.2em] uppercase font-light text-[#E0E0E0]/40 hover:text-[#007AFF] transition-colors duration-300 opacity-80 hover:opacity-100" href="https://github.com/AryanA2323" target="_blank" rel="noreferrer">GITHUB</a>
-            <a className="font-['Epilogue'] text-[9px] tracking-[0.2em] uppercase font-light text-[#E0E0E0]/40 hover:text-[#007AFF] transition-colors duration-300 opacity-80 hover:opacity-100" href="https://linkedin.com/in/AryanA2323">LINKEDIN</a>
+            <a className="font-['Epilogue'] text-[9px] tracking-[0.2em] uppercase font-light text-[#E0E0E0]/40 hover:text-[#007AFF] transition-colors duration-300 opacity-80 hover:opacity-100" href="https://github.com/AryanA2323" target="_blank" rel="noopener noreferrer">GITHUB</a>
+            <a className="font-['Epilogue'] text-[9px] tracking-[0.2em] uppercase font-light text-[#E0E0E0]/40 hover:text-[#007AFF] transition-colors duration-300 opacity-80 hover:opacity-100" href="https://linkedin.com/in/AryanA2323" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
           </div>
         </footer>
       </div>
