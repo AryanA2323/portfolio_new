@@ -217,12 +217,12 @@ function App() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
             </div>
 
-            <div className="relative z-10 hero-image h-[80vh] md:h-[90vh] w-full flex justify-center items-end mt-auto">
+            <div className="relative z-10 hero-image h-[70vh] md:h-[90vh] w-full flex justify-center items-end mt-auto">
               <img className="h-full w-auto object-contain drop-shadow-[0_20px_50px_rgba(0,122,255,0.3)] relative z-10" alt="Aryan Adhav" src="myphoto.png" />
 
-              <div className="absolute bottom-8 md:bottom-12 text-center flex flex-col items-center pointer-events-none z-20">
-                <span className="hero-text font-['Inter'] text-xs md:text-sm text-[#007AFF] mb-2 tracking-[0.5em] uppercase font-bold drop-shadow-lg"> SOFTWARE DEVELOPER</span>
-                <h1 className="hero-text font-['Epilogue'] text-4xl md:text-7xl text-white font-black tracking-tighter leading-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]">
+              <div className="absolute bottom-6 md:bottom-12 text-center flex flex-col items-center pointer-events-none z-20 px-4">
+                <span className="hero-text font-['Inter'] text-[10px] md:text-sm text-[#007AFF] mb-2 tracking-[0.4em] md:tracking-[0.5em] uppercase font-bold drop-shadow-lg text-center">JUNIOR SOFTWARE DEVELOPER</span>
+                <h1 className="hero-text font-['Epilogue'] text-4xl sm:text-5xl md:text-7xl text-white font-black tracking-tighter leading-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] text-center">
                   ARYAN ADHAV
                 </h1>
               </div>
@@ -265,7 +265,7 @@ function App() {
               <div className="font-display-xl text-display-xl text-stroke uppercase">ECOSYSTEM</div>
             </div>
 
-            <div className="flex flex-col items-center gap-2 relative z-10 max-w-4xl mx-auto -mt-16 pb-16" onMouseLeave={() => setHoveredHex(null)}>
+            <div className="flex flex-col items-center gap-2 relative z-10 w-full max-w-4xl mx-auto -mt-16 pb-16 scale-[0.65] sm:scale-75 md:scale-100 origin-top" onMouseLeave={() => setHoveredHex(null)}>
               {hexRows.map((row, rowIndex) => (
                 <div key={rowIndex} className="flex justify-center -mb-[38px]" style={{ gap: '16px' }}>
                   {row.map((skill, skillIndex) => {
@@ -477,12 +477,12 @@ function App() {
           </section>
         </main>
 
-        <footer className="w-full py-24 px-16 bg-[#050505] border-t border-[#E0E0E0]/10 flex flex-col md:flex-row justify-between items-end w-full gap-8">
-          <div className="flex flex-col gap-4">
-            <img src="logo.png" alt="Aryan Adhav Logo" className="h-20 md:h-28 w-auto object-contain self-start drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" loading="lazy" />
+        <footer className="w-full py-16 md:py-24 px-8 md:px-16 bg-[#050505] border-t border-[#E0E0E0]/10 flex flex-col md:flex-row justify-between items-center md:items-end w-full gap-8 text-center md:text-left">
+          <div className="flex flex-col gap-4 items-center md:items-start">
+            <img src="logo.png" alt="Aryan Adhav Logo" className="h-16 md:h-28 w-auto object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" loading="lazy" />
             <p className="font-['Epilogue'] text-[9px] tracking-[0.2em] uppercase font-light text-[#E0E0E0]/40">© 2026 ARYAN ADHAV. ALL RIGHTS RESERVED.</p>
           </div>
-          <div className="flex gap-8">
+          <div className="flex gap-8 justify-center">
             <a className="font-['Epilogue'] text-[9px] tracking-[0.2em] uppercase font-light text-[#E0E0E0]/40 hover:text-[#007AFF] transition-colors duration-300 opacity-80 hover:opacity-100" href="https://github.com/AryanA2323" target="_blank" rel="noopener noreferrer">GITHUB</a>
             <a className="font-['Epilogue'] text-[9px] tracking-[0.2em] uppercase font-light text-[#E0E0E0]/40 hover:text-[#007AFF] transition-colors duration-300 opacity-80 hover:opacity-100" href="https://linkedin.com/in/AryanA2323" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
           </div>
