@@ -10,7 +10,6 @@
     background-color: #050505;
     color: #E0E0E0;
     overflow-x: hidden;
-    @apply bg-background text-foreground;
   }
 
   .material-symbols-outlined {
