@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { ReactLenis } from '@studio-freight/react-lenis';
+import { SpotlightNavbar } from './components/ui/spotlight-navbar';
+import { motion } from 'framer-motion';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -186,17 +188,30 @@ function App() {
     <ReactLenis root>
       <div ref={containerRef}>
         {/* Navbar with dynamic background */}
-        <nav className={`group fixed top-0 w-full z-50 flex justify-between items-center px-8 md:px-16 transition-all duration-500 ease-in-out ${isScrolled ? 'bg-[#050505]/90 backdrop-blur-md shadow-2xl py-2 md:py-3 hover:py-4 md:hover:py-6' : 'bg-transparent py-4 md:py-6'}`}>
+        <div className={`group fixed top-0 w-full z-50 flex justify-between items-center px-8 md:px-16 transition-all duration-500 ease-in-out ${isScrolled ? 'bg-[#050505]/90 backdrop-blur-md shadow-2xl py-2 md:py-3 hover:py-4 md:hover:py-6' : 'bg-transparent py-4 md:py-6'}`}>
           <div className="flex-shrink-0">
             <img src="logo.png" alt="Aryan Adhav Logo" className={`w-auto object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.2)] transition-all duration-500 ease-in-out ${isScrolled ? 'h-10 md:h-12 group-hover:h-16 group-hover:md:h-24' : 'h-16 md:h-24'}`} />
           </div>
-          <div className="hidden md:flex gap-12">
-            <a className={`font-['Epilogue'] tracking-tight uppercase text-sm font-semibold transition-all duration-500 ease-in-out ${activeSection === 'work' ? 'text-[#007AFF]' : 'text-white/70 hover:text-white'}`} href="#work">WORK</a>
-            <a className={`font-['Epilogue'] tracking-tight uppercase text-sm font-semibold transition-all duration-500 ease-in-out ${activeSection === 'story' ? 'text-[#007AFF]' : 'text-white/70 hover:text-white'}`} href="#story">STORY</a>
-            <a className={`font-['Epilogue'] tracking-tight uppercase text-sm font-semibold transition-all duration-500 ease-in-out ${activeSection === 'stack' ? 'text-[#007AFF]' : 'text-white/70 hover:text-white'}`} href="#stack">SKILLS</a>
-            <a className={`font-['Epilogue'] tracking-tight uppercase text-sm font-semibold transition-all duration-500 ease-in-out ${activeSection === 'experience' ? 'text-[#007AFF]' : 'text-white/70 hover:text-white'}`} href="#experience">EXPERIENCE</a>
-            <a className={`font-['Epilogue'] tracking-tight uppercase text-sm font-semibold transition-all duration-500 ease-in-out ${activeSection === 'contact' ? 'text-[#007AFF]' : 'text-white/70 hover:text-white'}`} href="#contact">CONTACT</a>
+
+          <div className="hidden md:block">
+            <SpotlightNavbar
+              items={[
+                { label: "WORK", href: "#work" },
+                { label: "STORY", href: "#story" },
+                { label: "SKILLS", href: "#stack" },
+                { label: "EXPERIENCE", href: "#experience" },
+                { label: "CONTACT", href: "#contact" },
+              ]}
+              defaultActiveIndex={
+                activeSection === 'work' ? 0 :
+                  activeSection === 'story' ? 1 :
+                    activeSection === 'stack' ? 2 :
+                      activeSection === 'experience' ? 3 :
+                        activeSection === 'contact' ? 4 : 0
+              }
+            />
           </div>
+
           <div className="flex items-center gap-6">
             <a href="https://github.com/AryanA2323" target="_blank" rel="noopener noreferrer" className="text-[#E0E0E0]/80 hover:text-white hover:scale-110 transition-all">
               <i className="devicon-github-original text-2xl md:text-3xl" aria-label="GitHub"></i>
@@ -205,7 +220,7 @@ function App() {
               <i className="devicon-linkedin-plain text-2xl md:text-3xl" aria-label="LinkedIn"></i>
             </a>
           </div>
-        </nav>
+        </div>
 
         <main>
           {/* Hero */}
@@ -468,8 +483,32 @@ function App() {
                     I am open to internships, freelance work, and full-time opportunities where I can contribute across frontend, backend, and AI-powered feature development. Let's build something meaningful together.
                   </p>
                   <div className="flex gap-4 flex-wrap">
-                    <a href="mailto:aryanadhav00@gmail.com" className="px-8 py-3 bg-white text-black font-bold text-sm rounded-full hover:bg-gray-200 transition-colors">Send an Email</a>
-                    <a href="#" className="px-8 py-3 bg-[#1f1f1f] text-white font-bold text-sm rounded-full hover:bg-[#333] transition-colors border border-white/10">Download CV</a>
+                    <motion.a 
+                      href="mailto:aryanadhav00@gmail.com" 
+                      className="px-8 py-3 bg-white text-black font-bold text-sm rounded-full hover:bg-gray-200 transition-colors"
+                      animate={{ 
+                        boxShadow: ["0px 0px 0px rgba(255,255,255,0)", "0px 0px 20px rgba(255,255,255,0.6)", "0px 0px 0px rgba(255,255,255,0)"],
+                        y: [0, -3, 0]
+                      }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Send an Email
+                    </motion.a>
+                    <motion.a 
+                      href="#" 
+                      className="px-8 py-3 bg-[#1f1f1f] text-white font-bold text-sm rounded-full hover:bg-[#333] transition-colors border border-white/10"
+                      animate={{ 
+                        boxShadow: ["0px 0px 0px rgba(255,255,255,0)", "0px 0px 15px rgba(255,255,255,0.2)", "0px 0px 0px rgba(255,255,255,0)"],
+                        y: [0, -3, 0]
+                      }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Download CV
+                    </motion.a>
                   </div>
                 </div>
               </div>
