@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { ReactLenis } from '@studio-freight/react-lenis';
+import { ReactLenis } from 'lenis/react';
 import { SpotlightNavbar } from './components/ui/spotlight-navbar';
 import { motion } from 'framer-motion';
 
