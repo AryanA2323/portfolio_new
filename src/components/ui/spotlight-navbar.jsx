@@ -14,15 +14,23 @@ items = [
 ],
 className,
 onItemClick,
+activeIndex: controlledActiveIndex,
 defaultActiveIndex = 0,
 }) {
 const navRef = useRef(null);
-const [activeIndex, setActiveIndex] = useState(defaultActiveIndex);
+const [activeIndex, setActiveIndex] = useState(
+  controlledActiveIndex !== undefined ? controlledActiveIndex : defaultActiveIndex
+);
 const [hoverX, setHoverX] = useState(null);
 
 // Refs for the "light" positions so we can animate them imperatively
 const spotlightX = useRef(0);
 const ambienceX = useRef(0);
+
+useEffect(() => {
+  if (controlledActiveIndex === undefined) return;
+  setActiveIndex(controlledActiveIndex);
+}, [controlledActiveIndex]);
 
 useEffect(() => {
   if (!navRef.current) return;
@@ -87,6 +95,8 @@ useEffect(() => {
         nav.style.setProperty("--ambience-x", `${v}px`);
       },
     });
+  } else {
+    nav.style.setProperty("--ambience-x", "-999px");
   }
 }, [activeIndex]);
 

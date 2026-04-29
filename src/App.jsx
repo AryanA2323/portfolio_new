@@ -42,32 +42,32 @@ const projects = [
     category: 'AI HEALTHCARE',
     title: 'MEDISENSE AI',
     desc: 'A full-stack AI-powered healthcare platform providing instant symptom analysis, medicine identification, and an intelligent health chatbot using React, Python, FastAPI, and scikit-learn.',
-    link: 'https://github.com/AryanA2323/ADBMS-Mini-Project',
-    img: 'screen_2.png'
+    link: 'https://github.com/AryanA2323/MediSense-AI.git',
+    img: '/medisense.png'
   },
   {
     num: '02',
     category: 'DASHBOARD',
     title: 'KRUSHIMANDI ADMIN PANEL',
     desc: 'Comprehensive administrative dashboard built during my internship. Enables efficient management of an agricultural marketplace with React, Material UI, Node.js, and Firebase.',
-    link: 'https://github.com/AryanA2323/ADBMS-Mini-Project',
-    img: 'screen_5.png'
+    link: 'https://github.com/AryanA2323/krushimandiadmin.git',
+    img: '/krushimandiAdmin.png'
   },
   {
     num: '03',
     category: 'EDUCATIONAL AI',
     title: 'VIDEO SUMMARIZER & QUIZ',
     desc: 'An AI-powered platform transforming YouTube lecture videos into concise summaries and interactive quizzes using Gradio, Python, and Gemini AI.',
-    link: 'https://github.com/AryanA2323/ADBMS-Mini-Project',
-    img: 'screen_2.png'
+    link: 'https://github.com/AryanA2323/Vedio_Summarizer.git',
+    img: '/VideoSumm.png'
   },
   {
     num: '04',
     category: 'FULL STACK',
     title: 'LIBRARY MANAGEMENT SYSTEM',
     desc: 'A comprehensive web application streamlining library operations through CRUD functionality and cloud-based MongoDB Atlas integration.',
-    link: 'https://github.com/AryanA2323/ADBMS-Mini-Project',
-    img: 'screen_5.png'
+    link: 'https://github.com/AryanA2323/ADBMS-Mini-Project.git',
+    img: '/LMS.png'
   }
 ];
 
@@ -196,18 +196,18 @@ function App() {
           <div className="hidden md:block">
             <SpotlightNavbar
               items={[
-                { label: "WORK", href: "#work" },
                 { label: "STORY", href: "#story" },
                 { label: "SKILLS", href: "#stack" },
+                { label: "WORK", href: "#work" },
                 { label: "EXPERIENCE", href: "#experience" },
                 { label: "CONTACT", href: "#contact" },
               ]}
-              defaultActiveIndex={
-                activeSection === 'work' ? 0 :
-                  activeSection === 'story' ? 1 :
-                    activeSection === 'stack' ? 2 :
+              activeIndex={
+                activeSection === 'story' ? 0 :
+                  activeSection === 'stack' ? 1 :
+                    activeSection === 'work' ? 2 :
                       activeSection === 'experience' ? 3 :
-                        activeSection === 'contact' ? 4 : 0
+                        activeSection === 'contact' ? 4 : null
               }
             />
           </div>
@@ -260,8 +260,8 @@ function App() {
                 </div>
               </div>
               <div className="col-span-12 md:col-span-6 relative flex justify-center">
-                <div className="w-full max-w-sm aspect-square bg-surface-container-high overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-xl">
-                  <img className="project-image w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" alt="Aryan Adhav Workspace Archive" src="screen_5.png" loading="lazy" />
+                <div className="w-full max-w-lg overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-xl">
+                  <img className="project-image block w-full h-auto mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" alt="Aryan Adhav Workspace Archive" src="/the_archive.png" loading="lazy" />
                 </div>
                 <div className="absolute -bottom-8 left-4 md:left-12 p-6 bg-surface-container w-64 border border-outline-variant/10 shadow-2xl backdrop-blur-md">
                   <h3 className="font-label-sm text-label-sm text-secondary mb-2">PHILOSOPHY</h3>
@@ -333,31 +333,62 @@ function App() {
                     <div
                       key={i}
                       onClick={() => setActiveProject(i)}
-                      className={`relative rounded-3xl bg-cover bg-center cursor-pointer overflow-hidden flex items-end transition-all duration-[600ms] ease-[cubic-bezier(0.28,-0.03,0,0.99)] shadow-[0_15px_30px_rgba(0,0,0,0.5)] ${isActive ? 'h-full md:w-[60%] flex-[4]' : 'h-[80px] md:h-full md:w-[13.3%] flex-[1]'}`}
+                      className={`relative rounded-3xl bg-cover bg-center cursor-pointer overflow-hidden transition-all duration-[600ms] ease-[cubic-bezier(0.28,-0.03,0,0.99)] shadow-[0_15px_30px_rgba(0,0,0,0.5)] ${isActive ? 'h-full md:w-[60%] flex-[4]' : 'h-[80px] md:h-full md:w-[13.3%] flex-[1] flex items-end'}`}
                       style={{ backgroundImage: `url(${proj.img})` }}
                     >
                       {/* Gradient Overlay */}
                       <div className={`absolute inset-0 transition-opacity duration-300 pointer-events-none ${isActive ? 'bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-100' : 'bg-black/60 hover:bg-black/40'}`}></div>
 
-                      <div className="relative z-10 flex flex-col justify-end p-4 md:p-8 text-white w-full h-full">
+                      <div className="relative z-10 w-full h-full text-white">
+                        {isActive ? (
+                          <div className="relative h-full w-full p-4 md:p-6">
+                            <div className="absolute right-4 top-4 md:right-6 md:top-6 z-20 flex justify-end">
+                              <div className="flex-shrink-0 w-[40px] h-[40px] md:w-[50px] md:h-[50px] bg-black/45 border border-white/10 rounded-full flex justify-center items-center font-headline-md text-sm md:text-lg backdrop-blur-md">
+                                {proj.num}
+                              </div>
+                            </div>
 
-                        {/* Content text (only shown when active) */}
-                        <div className={`flex flex-col justify-end overflow-hidden w-full transition-all duration-500 ease-in-out ${isActive ? 'opacity-100 translate-y-0 h-auto mb-4' : 'opacity-0 translate-y-5 h-0 mb-0 hidden md:flex'}`}>
-                          <span className="font-label-sm text-[#007AFF] mb-2 text-[10px] tracking-widest font-bold uppercase">{proj.category}</span>
-                          <h4 className="uppercase font-bold text-lg md:text-3xl mb-3">{proj.title}</h4>
-                          <p className="text-xs md:text-sm leading-relaxed text-gray-300 line-clamp-2 md:line-clamp-3 mb-4 max-w-lg">
-                            {proj.desc}
-                          </p>
-                          <div>
-                            <a href={proj.link} target="_blank" rel="noopener noreferrer" className="text-[10px] md:text-xs text-white hover:text-[#007AFF] transition-colors tracking-widest uppercase font-bold flex items-center gap-2">VIEW CASE <span className="text-lg leading-none">&rarr;</span></a>
+                            <div className="flex h-full items-center justify-center px-1 pb-28 pt-10 md:px-4 md:pb-40 md:pt-12">
+                              <div className="w-full max-w-3xl rounded-[1.75rem] border border-white/10 bg-black/35 p-3 md:p-4 backdrop-blur-sm shadow-[0_18px_40px_rgba(0,0,0,0.35)]">
+                                <div className="aspect-[16/10] w-full overflow-hidden rounded-[1.1rem] bg-[#020202]">
+                                  <img
+                                    src={proj.img}
+                                    alt={proj.title}
+                                    className="w-full h-full object-contain object-center"
+                                    loading="lazy"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="absolute inset-x-4 bottom-4 z-20 md:inset-x-6 md:bottom-6">
+                              <div className="inline-flex w-full max-w-lg flex-col rounded-2xl border border-white/10 bg-black/60 px-4 py-3 backdrop-blur-md shadow-[0_12px_30px_rgba(0,0,0,0.35)]">
+                                <span className="font-label-sm text-[#007AFF] mb-2 text-[10px] tracking-widest font-bold uppercase">{proj.category}</span>
+                                <h4 className="uppercase font-bold text-lg md:text-3xl mb-3">{proj.title}</h4>
+                                <p className="text-xs md:text-sm leading-relaxed text-gray-300 line-clamp-2 md:line-clamp-3 mb-4 max-w-lg">
+                                  {proj.desc}
+                                </p>
+                                <div>
+                                  <a
+                                    href={proj.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[10px] md:text-xs font-bold uppercase tracking-widest text-white transition-colors hover:border-[#007AFF]/50 hover:bg-[#007AFF]/15 hover:text-[#7db7ff]"
+                                  >
+                                    GitHub
+                                    <span className="text-base leading-none">&rarr;</span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-
-                        {/* Number Circle at the bottom */}
-                        <div className={`flex-shrink-0 w-[40px] h-[40px] md:w-[50px] md:h-[50px] bg-black/40 border border-white/10 rounded-full flex justify-center items-center font-headline-md text-sm md:text-lg backdrop-blur-md transition-all ${isActive ? 'ml-0' : 'mx-auto'}`}>
-                          {proj.num}
-                        </div>
-
+                        ) : (
+                          <div className="flex h-full w-full flex-col justify-end p-4 md:p-8">
+                            <div className="flex-shrink-0 w-[40px] h-[40px] md:w-[50px] md:h-[50px] bg-black/40 border border-white/10 rounded-full flex justify-center items-center font-headline-md text-sm md:text-lg backdrop-blur-md transition-all mx-auto">
+                              {proj.num}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   )
@@ -477,12 +508,37 @@ function App() {
                 </div>
 
                 {/* Right Column */}
-                <div className="bg-[#141414] border border-white/5 rounded-[2rem] p-8 md:p-10 flex flex-col justify-center">
-                  <h4 className="text-2xl text-white font-bold mb-4">Looking for a <span className="text-[#007AFF]">Developer?</span></h4>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-8">
-                    I am open to internships, freelance work, and full-time opportunities where I can contribute across frontend, backend, and AI-powered feature development. Let's build something meaningful together.
-                  </p>
-                  <div className="flex gap-4 flex-wrap">
+                <div className="group relative flex flex-col gap-5 overflow-hidden rounded-2xl border p-8 md:p-10 shadow-[0_2px_8px_rgba(0,0,0,0.25)] transition-[border-color] duration-300 border-white/10 bg-white/3 hover:border-white/20">
+                  {/* Static accent tint */}
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 rounded-2xl"
+                    style={{
+                      background: "radial-gradient(ellipse at 20% 20%, rgba(0,122,255,0.12), transparent 65%)",
+                    }}
+                  />
+
+                  {/* Hover glow layer */}
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    style={{
+                      background: "radial-gradient(ellipse at 20% 20%, rgba(0,122,255,0.22), transparent 65%)",
+                    }}
+                  />
+
+                  {/* Shimmer sweep */}
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-y-0 left-0 w-[55%] -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-white/5 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[280%]"
+                  />
+
+                  <div className="relative z-10">
+                    <h4 className="text-[22px] text-white font-semibold tracking-tight mb-4">Looking for a <span className="text-[#007AFF]">Developer?</span></h4>
+                    <p className="text-white/55 text-sm leading-relaxed mb-8">
+                      I am open to internships, freelance work, and full-time opportunities where I can contribute across frontend, backend, and AI-powered feature development. Let's build something meaningful together.
+                    </p>
+                    <div className="flex gap-4 flex-wrap">
                     <motion.a 
                       href="mailto:aryanadhav00@gmail.com" 
                       className="px-8 py-3 bg-white text-black font-bold text-sm rounded-full hover:bg-gray-200 transition-colors"
@@ -497,7 +553,8 @@ function App() {
                       Send an Email
                     </motion.a>
                     <motion.a 
-                      href="#" 
+                      href="/Aryan%20Adhav.pdf"
+                      download="Aryan Adhav.pdf"
                       className="px-8 py-3 bg-[#1f1f1f] text-white font-bold text-sm rounded-full hover:bg-[#333] transition-colors border border-white/10"
                       animate={{ 
                         boxShadow: ["0px 0px 0px rgba(255,255,255,0)", "0px 0px 15px rgba(255,255,255,0.2)", "0px 0px 0px rgba(255,255,255,0)"],
@@ -509,7 +566,17 @@ function App() {
                     >
                       Download CV
                     </motion.a>
+                    </div>
                   </div>
+
+                  {/* Accent bottom line */}
+                  <div
+                    aria-hidden="true"
+                    className="absolute bottom-0 left-0 h-[2px] w-0 rounded-full transition-all duration-500 group-hover:w-full"
+                    style={{
+                      background: "linear-gradient(to right, rgba(0,122,255,0.6), transparent)",
+                    }}
+                  />
                 </div>
               </div>
             </div>
