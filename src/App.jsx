@@ -477,9 +477,9 @@ function App() {
           </section>
         </main>
 
-        <footer className="w-full py-16 md:py-24 px-8 md:px-16 bg-[#050505] border-t border-[#E0E0E0]/10 flex flex-col md:flex-row justify-between items-center md:items-end w-full gap-8 text-center md:text-left">
+        <footer className="w-full py-8 md:py-12 px-8 md:px-16 bg-[#050505] border-t border-[#E0E0E0]/10 flex flex-col md:flex-row justify-between items-center md:items-end w-full gap-6 text-center md:text-left">
           <div className="flex flex-col gap-4 items-center md:items-start">
-            <img src="logo.png" alt="Aryan Adhav Logo" className="h-16 md:h-28 w-auto object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" loading="lazy" />
+            <img src="logo.png" alt="Aryan Adhav Logo" className="h-12 md:h-16 w-auto object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" loading="lazy" />
             <p className="font-['Epilogue'] text-[9px] tracking-[0.2em] uppercase font-light text-[#E0E0E0]/40">© 2026 ARYAN ADHAV. ALL RIGHTS RESERVED.</p>
           </div>
           <div className="flex gap-8 justify-center">
