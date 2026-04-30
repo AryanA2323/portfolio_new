@@ -4,6 +4,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import { ReactLenis } from 'lenis/react';
 import { SpotlightNavbar } from './components/ui/spotlight-navbar';
 import { motion } from 'framer-motion';
+import ProjectsShowcase from './components/ProjectsShowcase';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -318,87 +319,13 @@ function App() {
             </div>
           </section>
 
-          {/* Accordion Digital Artifacts */}
-          <section className="bg-[#050505] overflow-hidden py-32 fade-in-section" id="work">
-            <div className="px-margin-edge mb-12">
-              <h2 className="font-label-sm text-label-sm text-[#007AFF] mb-4 tracking-[0.3em] font-bold">SELECTED WORKS</h2>
-              <h3 className="font-headline-lg text-4xl md:text-5xl font-bold text-white">Digital Artifacts.</h3>
-            </div>
-
-            <div className="w-full flex items-center justify-center">
-              <div className="flex h-[450px] md:h-[550px] w-full px-margin-edge justify-center items-center gap-4 flex-col md:flex-row">
-                {projects.map((proj, i) => {
-                  const isActive = activeProject === i;
-                  return (
-                    <div
-                      key={i}
-                      onClick={() => setActiveProject(i)}
-                      className={`relative rounded-3xl bg-cover bg-center cursor-pointer overflow-hidden transition-all duration-[600ms] ease-[cubic-bezier(0.28,-0.03,0,0.99)] shadow-[0_15px_30px_rgba(0,0,0,0.5)] ${isActive ? 'h-full md:w-[60%] flex-[4]' : 'h-[80px] md:h-full md:w-[13.3%] flex-[1] flex items-end'}`}
-                      style={{ backgroundImage: `url(${proj.img})` }}
-                    >
-                      {/* Gradient Overlay */}
-                      <div className={`absolute inset-0 transition-opacity duration-300 pointer-events-none ${isActive ? 'bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-100' : 'bg-black/60 hover:bg-black/40'}`}></div>
-
-                      <div className="relative z-10 w-full h-full text-white">
-                        {isActive ? (
-                          <div className="relative h-full w-full p-4 md:p-6">
-                            <div className="absolute right-4 top-4 md:right-6 md:top-6 z-20 flex justify-end">
-                              <div className="flex-shrink-0 w-[40px] h-[40px] md:w-[50px] md:h-[50px] bg-black/45 border border-white/10 rounded-full flex justify-center items-center font-headline-md text-sm md:text-lg backdrop-blur-md">
-                                {proj.num}
-                              </div>
-                            </div>
-
-                            <div className="flex h-full items-center justify-center px-1 pb-28 pt-10 md:px-4 md:pb-40 md:pt-12">
-                              <div className="w-full max-w-3xl rounded-[1.75rem] border border-white/10 bg-black/35 p-3 md:p-4 backdrop-blur-sm shadow-[0_18px_40px_rgba(0,0,0,0.35)]">
-                                <div className="aspect-[16/10] w-full overflow-hidden rounded-[1.1rem] bg-[#020202]">
-                                  <img
-                                    src={proj.img}
-                                    alt={proj.title}
-                                    className="w-full h-full object-contain object-center"
-                                    loading="lazy"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="absolute inset-x-4 bottom-4 z-20 md:inset-x-6 md:bottom-6">
-                              <div className="inline-flex w-full max-w-lg flex-col rounded-2xl border border-white/10 bg-black/60 px-4 py-3 backdrop-blur-md shadow-[0_12px_30px_rgba(0,0,0,0.35)]">
-                                <span className="font-label-sm text-[#007AFF] mb-2 text-[10px] tracking-widest font-bold uppercase">{proj.category}</span>
-                                <h4 className="uppercase font-bold text-lg md:text-3xl mb-3">{proj.title}</h4>
-                                <p className="text-xs md:text-sm leading-relaxed text-gray-300 line-clamp-2 md:line-clamp-3 mb-4 max-w-lg">
-                                  {proj.desc}
-                                </p>
-                                <div>
-                                  <a
-                                    href={proj.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[10px] md:text-xs font-bold uppercase tracking-widest text-white transition-colors hover:border-[#007AFF]/50 hover:bg-[#007AFF]/15 hover:text-[#7db7ff]"
-                                  >
-                                    GitHub
-                                    <span className="text-base leading-none">&rarr;</span>
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="flex h-full w-full flex-col justify-end p-4 md:p-8">
-                            <div className="flex-shrink-0 w-[40px] h-[40px] md:w-[50px] md:h-[50px] bg-black/40 border border-white/10 rounded-full flex justify-center items-center font-headline-md text-sm md:text-lg backdrop-blur-md transition-all mx-auto">
-                              {proj.num}
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          </section>
+          {/* Projects Showcase Digital Artifacts */}
+          <div id="work">
+            <ProjectsShowcase projects={projects} />
+          </div>
 
           {/* Experience */}
-          <section className="py-section-gap bg-[#080808] border-y border-outline-variant/10 fade-in-section" id="experience">
+          <section className="py-section-gap bg-[#080808] border-y border-outline-variant/10" id="experience">
             <div className="px-margin-edge">
               <h2 className="font-label-sm text-label-sm text-primary mb-24 tracking-[0.3em] text-center">CHRONICLES</h2>
 
@@ -539,33 +466,33 @@ function App() {
                       I am open to internships, freelance work, and full-time opportunities where I can contribute across frontend, backend, and AI-powered feature development. Let's build something meaningful together.
                     </p>
                     <div className="flex gap-4 flex-wrap">
-                    <motion.a 
-                      href="mailto:aryanadhav00@gmail.com" 
-                      className="px-8 py-3 bg-white text-black font-bold text-sm rounded-full hover:bg-gray-200 transition-colors"
-                      animate={{ 
-                        boxShadow: ["0px 0px 0px rgba(255,255,255,0)", "0px 0px 20px rgba(255,255,255,0.6)", "0px 0px 0px rgba(255,255,255,0)"],
-                        y: [0, -3, 0]
-                      }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Send an Email
-                    </motion.a>
-                    <motion.a 
-                      href="/Aryan%20Adhav.pdf"
-                      download="Aryan Adhav.pdf"
-                      className="px-8 py-3 bg-[#1f1f1f] text-white font-bold text-sm rounded-full hover:bg-[#333] transition-colors border border-white/10"
-                      animate={{ 
-                        boxShadow: ["0px 0px 0px rgba(255,255,255,0)", "0px 0px 15px rgba(255,255,255,0.2)", "0px 0px 0px rgba(255,255,255,0)"],
-                        y: [0, -3, 0]
-                      }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Download CV
-                    </motion.a>
+                      <motion.a
+                        href="mailto:aryanadhav00@gmail.com"
+                        className="px-8 py-3 bg-white text-black font-bold text-sm rounded-full hover:bg-gray-200 transition-colors"
+                        animate={{
+                          boxShadow: ["0px 0px 0px rgba(255,255,255,0)", "0px 0px 20px rgba(255,255,255,0.6)", "0px 0px 0px rgba(255,255,255,0)"],
+                          y: [0, -3, 0]
+                        }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        Send an Email
+                      </motion.a>
+                      <motion.a
+                        href="/Aryan%20Adhav.pdf"
+                        download="Aryan Adhav.pdf"
+                        className="px-8 py-3 bg-[#1f1f1f] text-white font-bold text-sm rounded-full hover:bg-[#333] transition-colors border border-white/10"
+                        animate={{
+                          boxShadow: ["0px 0px 0px rgba(255,255,255,0)", "0px 0px 15px rgba(255,255,255,0.2)", "0px 0px 0px rgba(255,255,255,0)"],
+                          y: [0, -3, 0]
+                        }}
+                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        Download CV
+                      </motion.a>
                     </div>
                   </div>
 
